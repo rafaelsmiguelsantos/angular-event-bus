@@ -1,10 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
+import { Subscription } from 'rxjs';
+import { AutoUnsubscribe } from 'ngx-auto-unsubscribe';
+import { Customer } from './domain/customer.interface';
+import { EventBusService, Events } from './core/event-bus.service';
+import { DataService } from './core/data.service';
+
+@AutoUnsubscribe()
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'angular-event-bus';
+export class AppComponent implements OnInit {
+  customers: Customer[];
+  customer: Customer;
+  eventbusSub: Subscription;
+  customersChangedSub: Subscription;
+
+  constructor(private eventbus: EventBusService, private dataService: DataService) { }
+
+  ngOnInit() {
+    //Example of using an event bus to provide loosely coupled communication (mediator pattern)
+    this.eventbusSub = this.eventbus.on(Events.CustomerSelected, cust => (this.customer = cust));
+
+    //Example of using BehaviorSubject to be notified when a service changes
+    this.customersChangedSub = this.dataService.customersChanged$.subscribe(custs => (this.customers = custs));
+  }
+
+  ngOnDestroy() {
+    // AutoUnsubscribe decorator above makes these calls unnecessary
+    // this.eventbusSub.unsubscribe();
+    // this.customersChangedSub.unsubscribe();
+  }
 }

@@ -1,5 +1,10 @@
 # AngularEventBus
 
+Objetivo é testar a implementação de um serviço de eventos que realiza a emissão de informações para os componentes interessados. Tudo o que é relacionado a eventos dentro da aplicação deve passar pela classe EventBusService.
+
+Data Service deve ser agnostico a implementação do Event Bus.
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.1.
 
 ## Development server
