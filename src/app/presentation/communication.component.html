@@ -1,4 +1,4 @@
-<h1>Services/Components Communication</h1>
+<h1>Services/Comunicação por componentes</h1>
 <br />
 <ul>
     <li>Um "Event Bus" pode fornecer uma maneira fracamente acoplada de comunicação entre objetos.</li>
@@ -23,12 +23,13 @@
 
 <br />
 <br />
-<h4>Notes:</h4>
+<h4>Notas:</h4>
 <ul>
-    <li>This example shows how services and subjects can be used to provide a communication mechanism for 
-            components. Click one of the buttons below and note how the customers count number in the upper-right corner 
-            changes (event bus is used). Note that when a customer is selected in the "Customers" presentation component the details display
-            AND the customer details display below the navbar (BehaviorSubject is used).</li>
-    <li>The "Add Customer (push only)" button will call a service to add a customer but the returned customers data will not display properly and will not trigger ngOnChanges in the presentation component since the customers array itself doesn't change.</li>
-    <li>The "Add Customer (push a clone)" will call a service to add a customer but the service will return a clone of the customers data. The presentation component's ngOnChanges will fire and the data will display correctly as a result.</li>
+    <li>Este exemplo mostra como serviços e assuntos podem ser usados para fornecer um mecanismo de comunicação para
+    componentes. Clique em um dos botões abaixo e observe como os clientes contam o número no canto superior direito
+    mudanças (o barramento de eventos é usado). Observe que quando um cliente é selecionado no componente de apresentação
+    "Clientes" os detalhes são exibidos e os detalhes do cliente são exibidos abaixo da barra de navegação (BehaviorSubject é usado)..</li>
+    <li>O botão "Adicionar cliente (somente push)" chamará um serviço para adicionar um cliente, mas os dados de clientes
+    retornados não serão exibidos corretamente e não acionarão ngOnChanges no componente de apresentação, pois a matriz de
+    clientes em si não muda.</li>
 </ul>

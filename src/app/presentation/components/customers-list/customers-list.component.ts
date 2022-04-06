@@ -21,11 +21,9 @@ export class CustomersListComponent {
   }
 
   selectCustomer(cust: Customer) {
-    // send to parent via output property
-    // note: could use eventbus as well if desired but output property
-    // would be the preferred method for passing data to am immediate parent
+    // envia para o pai via output
     this.customerSelected.emit(cust);
-    // Send customer to any eventbus listeners listening for the CustomerSelected event
+    // Envie o cliente para qualquer ouvinte do eventbus que esteja ouvindo o evento CustomerSelected
     this.eventbus.emit(new EmitEvent(Events.CustomerSelected, cust));
   }
 
