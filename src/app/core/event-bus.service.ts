@@ -16,10 +16,14 @@ export class EventBusService {
         map((e: EmitEvent) => e.value)
       )
       .subscribe(action);
+      
   }
+
 
   emit(event: EmitEvent) {
     this.subject$.next(event);
+    console.log(event);
+
   }
 }
 

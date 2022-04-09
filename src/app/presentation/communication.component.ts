@@ -25,10 +25,10 @@ export class CommunicationComponent implements OnInit, OnDestroy {
     this.customer = cust;
   }
 
-  addCustomerPush() {
-    this.dataService.addCustomer()
-        .subscribe((custs: Customer[]) => this.customers = custs);
-  }
+  // addCustomerPush() {
+  //   this.dataService.addCustomer()
+  //       .subscribe((custs: Customer[]) => this.customers = custs);
+  // }
 
   // addCustomerClone() {
   //   this.dataService.addCustomerClone()

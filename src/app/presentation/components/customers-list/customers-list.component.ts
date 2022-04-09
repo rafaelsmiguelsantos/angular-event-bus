@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy, SimpleChanges } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, SimpleChanges } from '@angular/core';
 import { EventBusService, EmitEvent, Events } from '../../../core/event-bus.service';
 import { Customer } from '../../../domain/customer.interface';
 @Component({
@@ -23,8 +23,9 @@ export class CustomersListComponent {
   selectCustomer(cust: Customer) {
     // envia para o pai via output
     this.customerSelected.emit(cust);
-    // Envie o cliente para qualquer ouvinte do eventbus que esteja ouvindo o evento CustomerSelected
+    // Envie o cliente para qualquer ouvinte do eventbus que esteja escutando o evento CustomerSelected
     this.eventbus.emit(new EmitEvent(Events.CustomerSelected, cust));
+    
   }
 
 }

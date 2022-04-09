@@ -22,10 +22,11 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     //Example of using an event bus to provide loosely coupled communication (mediator pattern)
-    this.eventbusSub = this.eventbus.on(Events.CustomerSelected, cust => (this.customer = cust));
+    const chang = this.eventbusSub = this.eventbus.on(Events.CustomerSelected, cust => (this.customer = cust));
 
+    console.log(`Mudanca Detectada ${chang}`);
+    
     //Example of using BehaviorSubject to be notified when a service changes
-    this.customersChangedSub = this.dataService.customersChanged$.subscribe(custs => (this.customers = custs));
   }
 
   ngOnDestroy() {
